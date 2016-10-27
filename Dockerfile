@@ -15,6 +15,10 @@ RUN mkdir /myvol
 RUN echo "hello world" > /myvol/greeting.txt
 VOLUME /myvol
 
+# Health check
+HEALTHCHECK --interval=2m --timeout=3s \
+  CMD curl -f http://localhost:4444/ || exit 1
+
 ENV PORT 4444
 
 # Ports

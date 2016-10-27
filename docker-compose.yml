@@ -1,0 +1,15 @@
+version: '2'
+services:
+    my-app: # 1 Reference name
+        image: my-app # 2 Image name
+        container_name: my-app # 3 Container name
+        environment:
+            SERVICE_URL: http://my-service:4000 # 4 Environment variable
+        ports:
+            - 5000:4444 # 5 Exposing ports
+
+    my-service:
+        image: my-service
+        container_name: my-service
+        ports:
+            - 4000:4000
